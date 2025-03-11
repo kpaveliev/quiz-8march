@@ -1,4 +1,5 @@
 import './App.css'
+import './index.css'
 import Quiz from './components/Quiz'
 
 function App() {
