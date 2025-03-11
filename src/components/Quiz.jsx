@@ -168,25 +168,25 @@ const Quiz = () => {
         <button 
           onClick={useFiftyFifty} 
           disabled={usedLifelines.fifty}
-          className={`p-2 rounded-full ${usedLifelines.fifty ? 'bg-gray-300 text-gray-500' : 'bg-blue-500 text-white hover:bg-blue-600'}`}
+          className={`p-3 rounded-full ${usedLifelines.fifty ? 'bg-gray-300 text-gray-500' : 'bg-blue-500 text-white hover:bg-blue-600'}`}
           title="50:50">
-          <div className="text-xl font-bold">50:50</div>
+          <div className="text-4xl font-bold">50:50</div>
         </button>
         
         <button 
           onClick={useAudienceHelp} 
           disabled={usedLifelines.audience}
-          className={`p-2 rounded-full ${usedLifelines.audience ? 'bg-gray-300 text-gray-500' : 'bg-blue-500 text-white hover:bg-blue-600'}`}
+          className={`p-3 rounded-full ${usedLifelines.audience ? 'bg-gray-300 text-gray-500' : 'bg-blue-500 text-white hover:bg-blue-600'}`}
           title="Помощь зала">
-          <Users size={24} />
+          <Users size={36} />
         </button>
         
         <button 
           onClick={usePhoneAFriend} 
           disabled={usedLifelines.phone}
-          className={`p-2 rounded-full ${usedLifelines.phone ? 'bg-gray-300 text-gray-500' : 'bg-blue-500 text-white hover:bg-blue-600'}`}
+          className={`p-3 rounded-full ${usedLifelines.phone ? 'bg-gray-300 text-gray-500' : 'bg-blue-500 text-white hover:bg-blue-600'}`}
           title="Звонок другу">
-          <Phone size={24} />
+          <Phone size={36} />
         </button>
       </div>
     );
@@ -194,9 +194,9 @@ const Quiz = () => {
 
   const renderMoneyTree = () => {
     return (
-      <div className="hidden md:block w-56 bg-blue-900 text-white p-3 rounded-lg overflow-auto">
-        <h3 className="text-left font-bold mb-2 text-xl">Сумма</h3>
-        <ul className="text-xl">
+      <div className="hidden md:block w-84 bg-blue-900 text-white p-3 rounded-lg overflow-auto">
+        <h3 className="text-left font-bold mb-2 text-4xl">Сумма</h3>
+        <ul className="text-4xl">
           {moneyTree.map((sum, index) => (
             <li 
               key={index} 
@@ -237,9 +237,9 @@ const Quiz = () => {
     
     return (
       <div className="mt-2 p-3 bg-yellow-100 rounded-lg overflow-auto">
-        <p className="font-bold text-xl mb-1">Ваш друг думает, что правильный ответ:</p>
-        <p className="text-xl mb-1">"{String.fromCharCode(65 + answer)}" - {questions[currentQuestion].options[answer]}</p>
-        <p className="text-gray-600 italic text-xl">(Но не забывайте, что друг не всегда знает правильный ответ!)</p>
+        <p className="font-bold text-4xl mb-1">Ваш друг думает, что правильный ответ:</p>
+        <p className="text-4xl mb-1">"{String.fromCharCode(65 + answer)}" - {questions[currentQuestion].options[answer]}</p>
+        <p className="text-gray-600 italic text-4xl">(Но не забывайте, что друг не всегда знает правильный ответ!)</p>
       </div>
     );
   };
@@ -259,24 +259,24 @@ const Quiz = () => {
     return (
       <div className="flex flex-col items-center justify-center p-4 bg-blue-900 text-white h-full rounded-lg w-full overflow-auto">
         <div className="text-center mb-4">
-          <h2 className="text-xl font-bold mb-3">Игра окончена!</h2>
+          <h2 className="text-4xl font-bold mb-3">Игра окончена!</h2>
           {correctAnswer && currentQuestion === questions.length - 1 ? (
             <>
-              <Award size={64} className="mx-auto mb-3 text-yellow-400" />
-              <p className="text-xl mb-2">Поздравляем! Вы выиграли</p>
-              <p className="text-xl font-bold text-yellow-400">{moneyTree[currentQuestion]} руб.</p>
+              <Award size={96} className="mx-auto mb-3 text-yellow-400" />
+              <p className="text-4xl mb-2">Поздравляем! Вы выиграли</p>
+              <p className="text-4xl font-bold text-yellow-400">{moneyTree[currentQuestion]} руб.</p>
             </>
           ) : (
             <>
-              <DollarSign size={64} className="mx-auto mb-3" />
-              <p className="text-xl mb-2">Ваш выигрыш:</p>
-              <p className="text-xl font-bold">{currentWinnings} руб.</p>
+              <DollarSign size={96} className="mx-auto mb-3" />
+              <p className="text-4xl mb-2">Ваш выигрыш:</p>
+              <p className="text-4xl font-bold">{currentWinnings} руб.</p>
             </>
           )}
         </div>
         <button 
           onClick={restartGame}
-          className="mt-3 px-6 py-2 text-xl bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+          className="mt-3 px-6 py-2 text-4xl bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
         >
           Начать заново
         </button>
@@ -287,14 +287,14 @@ const Quiz = () => {
   return (
     <div className="flex flex-col md:flex-row gap-4 w-full h-full overflow-hidden">
       <div className="flex-1 bg-blue-800 text-white p-4 rounded-lg flex flex-col overflow-hidden">
-        <div className="text-yellow-300 text-xl font-bold text-left mb-2">
+        <div className="text-yellow-300 text-4xl font-bold text-left mb-2">
           Вопрос {currentQuestion + 1} - {moneyTree[currentQuestion]} руб.
         </div>
         
         {renderLifelines()}
         
         <div className="flex-1 flex flex-col overflow-hidden">
-          <h2 className="text-xl mb-4 font-bold text-left">{questions[currentQuestion].question}</h2>
+          <h2 className="text-4xl mb-4 font-bold text-left">{questions[currentQuestion].question}</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             {questions[currentQuestion].options.map((option, index) => (
@@ -302,7 +302,7 @@ const Quiz = () => {
                 key={index}
                 onClick={() => !showExplanation && setSelectedOption(index)}
                 disabled={showExplanation || removedOptions.includes(index)}
-                className={`p-3 rounded-lg text-left text-xl ${
+                className={`p-3 rounded-lg text-left text-4xl ${
                   removedOptions.includes(index) ? 'opacity-0 cursor-default' :
                   selectedOption === index 
                     ? showExplanation 
@@ -332,7 +332,7 @@ const Quiz = () => {
           
           {audienceHelp && (
             <div className="mt-2 p-3 bg-white text-black rounded-lg overflow-auto">
-              <h3 className="font-bold mb-2 text-xl">Помощь зала:</h3>
+              <h3 className="font-bold mb-2 text-4xl">Помощь зала:</h3>
               <div className="flex items-end h-32 gap-2">
                 {audienceHelp.map((percent, index) => (
                   <div key={index} className="flex flex-col items-center flex-1">
@@ -340,7 +340,7 @@ const Quiz = () => {
                       className="w-full bg-blue-500" 
                       style={{height: `${percent}%`}}
                     ></div>
-                    <div className="mt-1 text-xl">
+                    <div className="mt-1 text-4xl">
                       {String.fromCharCode(65 + index)}: {percent}%
                     </div>
                   </div>
@@ -356,17 +356,17 @@ const Quiz = () => {
               <div className="flex items-center mb-2">
                 {correctAnswer ? (
                   <>
-                    <Check className="text-green-600 mr-2" size={24} />
-                    <span className="font-bold text-xl">Правильно!</span>
+                    <Check className="text-green-600 mr-2" size={36} />
+                    <span className="font-bold text-4xl">Правильно!</span>
                   </>
                 ) : (
                   <>
-                    <X className="text-red-600 mr-2" size={24} />
-                    <span className="font-bold text-xl">Неправильно!</span>
+                    <X className="text-red-600 mr-2" size={36} />
+                    <span className="font-bold text-4xl">Неправильно!</span>
                   </>
                 )}
               </div>
-              <p className="text-xl">{questions[currentQuestion].explanation}</p>
+              <p className="text-4xl">{questions[currentQuestion].explanation}</p>
             </div>
           )}
         </div>
@@ -376,7 +376,7 @@ const Quiz = () => {
             <button
               onClick={checkAnswer}
               disabled={selectedOption === null}
-              className={`px-6 py-2 rounded-lg text-xl ${
+              className={`px-6 py-2 rounded-lg text-4xl ${
                 selectedOption === null 
                   ? 'bg-gray-500 cursor-not-allowed' 
                   : 'bg-green-600 hover:bg-green-700'
@@ -387,7 +387,7 @@ const Quiz = () => {
           ) : (
             <button
               onClick={nextQuestion}
-              className="px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-xl"
+              className="px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-4xl"
             >
               {currentQuestion < questions.length - 1 ? 'Следующий вопрос' : 'Завершить игру'}
             </button>
